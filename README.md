@@ -8,7 +8,7 @@ See setup instructions for mach
 ### Demo
 
 ```bash
-git clone [repo]
+git clone https://github.com/cddr/mach-clj-demo.git
 cd mach-clj-demo
 mach test
 mach run
