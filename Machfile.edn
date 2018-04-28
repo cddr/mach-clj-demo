@@ -1,0 +1,13 @@
+{target-dir {product "target"
+             novelty (not (mach.core/file-exists? product))
+             update! #$ ["mkdir target"]
+             clean! #$ ["rmdir target"]}
+
+ run {update! #$ ["clj" "-m" "mach-demo.main"]}
+
+ test {update! #$ ["clj" "-Atest"]}
+
+ uberjar {product "target/mach-clj-demo.jar"
+          depends [target-dir]
+          novelty (mach.core/modified-since product ["src" "deps.edn"])
+          update! #$ ["clj" "-Auberjar"]}}
